@@ -1,15 +1,15 @@
-# @philiprehberger/safe-json
+# @philiprehberger/ts-safe-json
 
-[![CI](https://github.com/philiprehberger/safe-json/actions/workflows/ci.yml/badge.svg)](https://github.com/philiprehberger/safe-json/actions/workflows/ci.yml)
-[![npm version](https://img.shields.io/npm/v/@philiprehberger/safe-json.svg)](https://www.npmjs.com/package/@philiprehberger/safe-json)
-[![License](https://img.shields.io/github/license/philiprehberger/safe-json)](LICENSE)
+[![CI](https://github.com/philiprehberger/ts-safe-json/actions/workflows/ci.yml/badge.svg)](https://github.com/philiprehberger/ts-safe-json/actions/workflows/ci.yml)
+[![npm version](https://img.shields.io/npm/v/@philiprehberger/ts-safe-json.svg)](https://www.npmjs.com/package/@philiprehberger/ts-safe-json)
+[![License](https://img.shields.io/github/license/philiprehberger/ts-safe-json)](LICENSE)
 
 Safe JSON parsing and serialization with circular detection and depth limiting.
 
 ## Installation
 
 ```bash
-npm install @philiprehberger/safe-json
+npm install @philiprehberger/ts-safe-json
 ```
 
 ## Usage
@@ -17,7 +17,7 @@ npm install @philiprehberger/safe-json
 ### Safe Parse
 
 ```ts
-import { safeParse } from '@philiprehberger/safe-json';
+import { safeParse } from '@philiprehberger/ts-safe-json';
 
 const { ok, data, error } = safeParse<User>(jsonString);
 if (ok) {
@@ -30,7 +30,7 @@ if (ok) {
 ### Safe Stringify
 
 ```ts
-import { safeStringify } from '@philiprehberger/safe-json';
+import { safeStringify } from '@philiprehberger/ts-safe-json';
 
 // Handles circular references
 const obj: any = { name: 'test' };
