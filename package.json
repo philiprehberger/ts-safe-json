@@ -1,6 +1,6 @@
 {
   "name": "@philiprehberger/ts-safe-json",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Safe JSON parsing and serialization with circular detection and depth limiting",
   "type": "module",
   "main": "./dist/index.cjs",
