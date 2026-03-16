@@ -1,5 +1,9 @@
 # @philiprehberger/safe-json
 
+[![CI](https://github.com/philiprehberger/safe-json/actions/workflows/ci.yml/badge.svg)](https://github.com/philiprehberger/safe-json/actions/workflows/ci.yml)
+[![npm version](https://img.shields.io/npm/v/@philiprehberger/safe-json.svg)](https://www.npmjs.com/package/@philiprehberger/safe-json)
+[![License](https://img.shields.io/github/license/philiprehberger/safe-json)](LICENSE)
+
 Safe JSON parsing and serialization with circular detection and depth limiting.
 
 ## Installation
