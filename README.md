@@ -4,7 +4,7 @@
 [![npm version](https://img.shields.io/npm/v/@philiprehberger/ts-safe-json.svg)](https://www.npmjs.com/package/@philiprehberger/ts-safe-json)
 [![License](https://img.shields.io/github/license/philiprehberger/ts-safe-json)](LICENSE)
 
-Safe JSON parsing and serialization with circular detection and depth limiting.
+Safe JSON parsing and serialization with circular detection and depth limiting
 
 ## Installation
 
