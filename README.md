@@ -1,6 +1,6 @@
 # @philiprehberger/ts-safe-json
 
-[![CI](https://github.com/philiprehberger/ts-safe-json/actions/workflows/publish.yml/badge.svg)](https://github.com/philiprehberger/ts-safe-json/actions/workflows/publish.yml)
+[![CI](https://github.com/philiprehberger/ts-safe-json/actions/workflows/ci.yml/badge.svg)](https://github.com/philiprehberger/ts-safe-json/actions/workflows/ci.yml)
 [![npm version](https://img.shields.io/npm/v/@philiprehberger/ts-safe-json.svg)](https://www.npmjs.com/package/@philiprehberger/ts-safe-json)
 [![License](https://img.shields.io/github/license/philiprehberger/ts-safe-json)](LICENSE)
 
