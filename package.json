@@ -1,6 +1,6 @@
 {
   "name": "@philiprehberger/safe-json",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Safe JSON parsing and serialization with circular detection and depth limiting",
   "type": "module",
   "main": "./dist/index.cjs",
