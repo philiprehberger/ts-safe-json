@@ -1,5 +1,5 @@
 {
-  "name": "@philiprehberger/ts-safe-json",
+  "name": "@philiprehberger/safe-json",
   "version": "0.1.4",
   "description": "Safe JSON parsing and serialization with circular detection and depth limiting",
   "type": "module",
