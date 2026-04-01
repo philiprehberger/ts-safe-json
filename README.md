@@ -46,12 +46,83 @@ safeStringify(deeplyNested, { maxDepth: 3 });
 safeStringify(data, { space: 2 });
 ```
 
+### Custom Type Serialization Hooks
+
+```ts
+import {
+  safeParse,
+  safeStringify,
+  createTypeHooks,
+  builtInSerializers,
+} from '@philiprehberger/safe-json';
+
+// Create hooks with built-in serializers for Date, BigInt, Set, and Map
+const hooks = createTypeHooks();
+
+const data = {
+  createdAt: new Date('2025-01-15'),
+  bigNum: BigInt('99999999999999999'),
+  tags: new Set(['a', 'b']),
+  meta: new Map([['key', 'value']]),
+};
+
+const json = safeStringify(data, { hooks });
+const { ok, data: restored } = safeParse(json, { hooks });
+// restored.createdAt is a Date instance
+// restored.tags is a Set instance
+```
+
+### Deep Clone with Type Preservation
+
+```ts
+import { safeJsonClone, createTypeHooks } from '@philiprehberger/safe-json';
+
+const hooks = createTypeHooks();
+const original = { date: new Date(), items: new Set([1, 2, 3]) };
+
+const cloned = safeJsonClone(original, { hooks });
+// cloned.date is a new Date instance with the same value
+// cloned.items is a new Set with the same values
+```
+
+### Deep Merge
+
+```ts
+import { safeJsonMerge } from '@philiprehberger/safe-json';
+
+const target = { a: 1, nested: { x: 10 }, tags: ['a'] };
+const source = { b: 2, nested: { y: 20 }, tags: ['b'] };
+
+const merged = safeJsonMerge(target, source);
+// { a: 1, b: 2, nested: { x: 10, y: 20 }, tags: ['a', 'b'] }
+```
+
+### Configurable Error Handler
+
+```ts
+import { safeParse, safeStringify, safeJsonClone } from '@philiprehberger/safe-json';
+
+const onError = (err: Error) => console.error('JSON error:', err.message);
+
+safeParse('invalid json', { onError });
+safeStringify(value, { onError });
+safeJsonClone(value, { onError });
+```
+
 ## API
 
 | Export | Description |
 |--------|-------------|
-| `safeParse<T>(input)` | Parse JSON string, returns `{ ok, data?, error? }` |
+| `safeParse<T>(input, options?)` | Parse JSON string, returns `{ ok, data?, error? }` |
 | `safeStringify(value, options?)` | Stringify with circular/depth protection |
+| `safeJsonClone<T>(value, options?)` | Deep clone via serialize/deserialize |
+| `safeJsonMerge<T>(target, source, options?)` | Deep merge two objects safely |
+| `createTypeHooks(serializers?)` | Create a TypeHooks config (defaults to built-in serializers) |
+| `builtInSerializers` | Array of built-in serializers for Date, BigInt, Set, Map |
+| `dateSerializer` | Type serializer for Date |
+| `bigIntSerializer` | Type serializer for BigInt |
+| `setSerializer` | Type serializer for Set |
+| `mapSerializer` | Type serializer for Map |
 
 ### `SafeParseResult<T>`
 
@@ -68,6 +139,24 @@ safeStringify(data, { space: 2 });
 | `maxDepth` | `number` | — | Max nesting depth before `"[MaxDepth]"` |
 | `replacer` | `(key, value) => unknown` | — | Custom replacer function |
 | `space` | `number` | — | Indentation spaces |
+| `onError` | `(error: Error) => void` | — | Error callback instead of silent failure |
+| `hooks` | `TypeHooks` | — | Custom type serialization hooks |
+
+### `SafeParseOptions`
+
+| Option | Type | Default | Description |
+|--------|------|---------|-------------|
+| `hooks` | `TypeHooks` | — | Custom type deserialization hooks |
+| `onError` | `(error: Error) => void` | — | Error callback |
+
+### `TypeSerializer<T>`
+
+| Property | Type | Description |
+|----------|------|-------------|
+| `type` | `string` | Unique type identifier |
+| `test` | `(value: unknown) => boolean` | Returns true if value matches this type |
+| `serialize` | `(value: T) => unknown` | Convert value to JSON-safe representation |
+| `deserialize` | `(value: unknown) => T` | Restore value from JSON representation |
 
 ## Development
 

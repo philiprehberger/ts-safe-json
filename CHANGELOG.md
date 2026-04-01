@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.2.0
+
+- Add custom type serialization hooks for Date, BigInt, Set, and Map
+- Add safeJsonClone() for deep cloning with type preservation
+- Add safeJsonMerge() for safe deep object merging
+- Add configurable error handler callback
+
 ## 0.1.6
 
 - Standardize README to 3-badge format with emoji Support section
