@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.1
+
+- Fix README GitHub URLs to use correct repo name (ts-safe-json)
+
 ## 0.2.0
 
 - Add custom type serialization hooks for Date, BigInt, Set, and Map

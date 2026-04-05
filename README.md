@@ -1,8 +1,8 @@
 # @philiprehberger/safe-json
 
-[![CI](https://github.com/philiprehberger/safe-json/actions/workflows/ci.yml/badge.svg)](https://github.com/philiprehberger/safe-json/actions/workflows/ci.yml)
+[![CI](https://github.com/philiprehberger/ts-safe-json/actions/workflows/ci.yml/badge.svg)](https://github.com/philiprehberger/ts-safe-json/actions/workflows/ci.yml)
 [![npm version](https://img.shields.io/npm/v/@philiprehberger/safe-json.svg)](https://www.npmjs.com/package/@philiprehberger/safe-json)
-[![Last updated](https://img.shields.io/github/last-commit/philiprehberger/safe-json)](https://github.com/philiprehberger/safe-json/commits/main)
+[![Last updated](https://img.shields.io/github/last-commit/philiprehberger/ts-safe-json)](https://github.com/philiprehberger/ts-safe-json/commits/main)
 
 Safe JSON parsing and serialization with circular detection and depth limiting
 
@@ -170,11 +170,11 @@ npm test
 
 If you find this project useful:
 
-⭐ [Star the repo](https://github.com/philiprehberger/safe-json)
+⭐ [Star the repo](https://github.com/philiprehberger/ts-safe-json)
 
-🐛 [Report issues](https://github.com/philiprehberger/safe-json/issues?q=is%3Aissue+is%3Aopen+label%3Abug)
+🐛 [Report issues](https://github.com/philiprehberger/ts-safe-json/issues?q=is%3Aissue+is%3Aopen+label%3Abug)
 
-💡 [Suggest features](https://github.com/philiprehberger/safe-json/issues?q=is%3Aissue+is%3Aopen+label%3Aenhancement)
+💡 [Suggest features](https://github.com/philiprehberger/ts-safe-json/issues?q=is%3Aissue+is%3Aopen+label%3Aenhancement)
 
 ❤️ [Sponsor development](https://github.com/sponsors/philiprehberger)
 
