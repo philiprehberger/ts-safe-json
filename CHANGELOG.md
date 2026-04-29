@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.3.0
+
+- Add `safeJsonEqual(a, b, options?)` for structural JSON-aware equality with circular-reference safety and optional type-hook support
+- Run `npm test` in publish workflow before publishing to npm
+
 ## 0.2.1
 
 - Fix README GitHub URLs to use correct repo name (ts-safe-json)

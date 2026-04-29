@@ -97,6 +97,23 @@ const merged = safeJsonMerge(target, source);
 // { a: 1, b: 2, nested: { x: 10, y: 20 }, tags: ['a', 'b'] }
 ```
 
+### Structural Equality
+
+```ts
+import { safeJsonEqual, createTypeHooks } from '@philiprehberger/safe-json';
+
+safeJsonEqual({ a: 1, items: [1, 2] }, { a: 1, items: [1, 2] }); // true
+
+// Date / BigInt / Set / Map equality via hooks
+const hooks = createTypeHooks();
+safeJsonEqual({ at: new Date('2026-01-01') }, { at: new Date('2026-01-01') }, { hooks }); // true
+
+// Circular references are tolerated
+const a: any = { x: 1 }; a.self = a;
+const b: any = { x: 1 }; b.self = b;
+safeJsonEqual(a, b); // true
+```
+
 ### Configurable Error Handler
 
 ```ts
@@ -117,6 +134,7 @@ safeJsonClone(value, { onError });
 | `safeStringify(value, options?)` | Stringify with circular/depth protection |
 | `safeJsonClone<T>(value, options?)` | Deep clone via serialize/deserialize |
 | `safeJsonMerge<T>(target, source, options?)` | Deep merge two objects safely |
+| `safeJsonEqual(a, b, options?)` | Structural JSON-aware equality with circular safety and optional type hooks |
 | `createTypeHooks(serializers?)` | Create a TypeHooks config (defaults to built-in serializers) |
 | `builtInSerializers` | Array of built-in serializers for Date, BigInt, Set, Map |
 | `dateSerializer` | Type serializer for Date |

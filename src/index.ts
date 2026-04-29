@@ -1,6 +1,8 @@
 export { safeParse, safeStringify } from './parse.js';
 export { safeJsonClone } from './clone.js';
 export { safeJsonMerge } from './merge.js';
+export { safeJsonEqual } from './equal.js';
+export type { SafeJsonEqualOptions } from './equal.js';
 export {
   createTypeHooks,
   builtInSerializers,
